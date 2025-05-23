@@ -1,0 +1,39 @@
++dvt_init+dvt
++dvt_ext_unmap_all
++define+ASSERTIONS_EN
++dvt_ext_map+SystemVerilog_2012+.vp+.vs+.vsh+.v95+.v95p+.sv+.svh+.svp+.svi+.sva+.v+.vh
+
+
+//-----------------------------------------------------------------------------
+// RTL top-level
+//-----------------------------------------------------------------------------
+example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh
+example/design/dut_toplevel/rtl/sv/dut_toplevel.sv
+example/design/dut_arbiter/rtl/sv/dut_arbiter.sv
+example/design/dut_fifo/rtl/sv/dut_fifo.sv
+example/design/dut_input_channel_control/rtl/sv/dut_input_channel_control.sv
+example/design/dut_output_control/rtl/sv/dut_output_control.sv
+example/design/dut_processing_control/rtl/sv/dut_processing_control.sv
+example/design/dut_math_wrapper/rtl/sv/dut_multiplier_9x9_comb.sv
+example/design/dut_math_wrapper/rtl/sv/dut_multiplier_18x18_comb.sv
+example/design/dut_math_wrapper/rtl/sv/dut_math_wrapper.sv
+
+
+//-----------------------------------------------------------------------------
+// interface property modules
+//-----------------------------------------------------------------------------
+example/design/dut_toplevel/prop/sv/dut_toplevel_interface_properties.sv
+example/formal/common/valid_ready_interface_properties.sv
+example/formal/common/req_ack_interface_properties.sv
+example/design/dut_input_channel_control/prop/sv/dut_input_channel_control_properties.sv
+example/design/dut_output_control/prop/sv/dut_output_control_properties.sv
+
+
+//-----------------------------------------------------------------------------
+// interface property bindings
+//-----------------------------------------------------------------------------
+example/design/dut_toplevel/prop/sv/dut_toplevel_interface_properties__bind__dut_toplevel.sv
+example/design/dut_input_channel_control/prop/sv/dut_input_channel_control_properties__bind__dut_input_channel_control.sv
+example/design/dut_output_control/prop/sv/dut_output_control_properties__bind__dut_output_control_properties.sv
+
+-top dut_toplevel

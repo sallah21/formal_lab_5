@@ -1,0 +1,34 @@
+{
+    "files.associations": {
+        "*.vams": "plaintext",
+        "*.o": "plaintext",
+        "*.pslvhdl": "plaintext",
+        "*.v": "systemverilog",
+        "*.so": "plaintext",
+        "*.cc": "plaintext",
+        "*.sln": "plaintext",
+        "*.vhd": "plaintext",
+        "*.vhdl": "plaintext",
+        "*.sdl": "plaintext",
+        "*.svams": "plaintext",
+        "*.vh": "systemverilog",
+        "*.cpp": "plaintext",
+        "*.cxx": "plaintext",
+        "*.hpp": "plaintext",
+        "*.a": "plaintext",
+        "*.pss": "plaintext",
+        "*.c": "plaintext",
+        "*.e": "plaintext",
+        "*.h": "plaintext"
+    },
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "makefile.makeDirectory": "${workspaceFolder}/example/model/math_wrapper_model",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "${workspaceFolder}/example/model/math_wrapper_model",
+            "binaryPath": "${workspaceFolder}/example/model/math_wrapper_model/main",
+            "binaryArgs": []
+        }
+    ]
+}
