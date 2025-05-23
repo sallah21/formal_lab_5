@@ -61,10 +61,10 @@ close $envDumpFileId
 ### Joined setup for sequence equivalence check
 check_sec -setup \
           -spec_top dut_toplevel \
-          -spec_analyze_opts { -sv12 -f spec_files.f } \
+          -spec_analyze_opts { -sv12 -f /home/student/Documents/DS/FORMAL/sequence-equivalence-check-example/example/formal/sec/run/spec_files.f } \
           -spec_elaborate_opts { -bbox_mul 128 -bbox_div 128 -bbox_a 65536 } \
           -imp_top imp_dut_toplevel \
-          -imp_analyze_opts { -sv12 -f imp_files.f } \
+          -imp_analyze_opts { -sv12 -f /home/student/Documents/DS/FORMAL/sequence-equivalence-check-example/example/formal/sec/run/imp_files.f } \
           -imp_elaborate_opts { -bbox_mul 128 -bbox_div 128 -bbox_a 65536 }
 
 

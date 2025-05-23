@@ -1,0 +1,72 @@
+Boundary outputs mapping
+Status:
+    Incomplete
+Description:
+    Some of the design's outputs are not mapped.
+    All outputs must be proven equal to complete the SEC proof.
+    To get the list of unmapped outputs, use "check_sec -interface -unmapped -signal_type primary_output -imp".
+
+Boundary outputs proof
+Status:
+    Invalid
+Description:
+    Counter examples were found for some of the mapped outputs. The SEC proof
+    is complete only when all of the outputs are proven equal
+    and all related precondition covers are covered.
+
+User cutpoints proof
+Status:
+    Complete
+
+Imported assertions proof
+Status:
+    Complete
+
+Imported covers proof
+Status:
+    Complete
+
+Reset value abstraction
+Status:
+    Complete
+
+X signals and undrivens
+Status:
+    Complete
+
+Mapped stopats
+Status:
+    Complete
+
+Assumption management
+Status:
+    Complete
+
+Assumptions conflict
+Status:
+    Complete
+
+Assumptions on driven signals
+Status:
+    Complete
+
+Assumptions' related preconditions
+Status:
+    Complete
+
+Imp assumptions
+Status:
+    Complete
+
+Signoff Summary
+===============
+Boundary outputs mapping  - Incomplete
+Boundary outputs proof    - Invalid
+User cutpoints proof      - Complete
+Imported assertions proof - Complete
+Imported covers proof     - Complete
+Reset value abstraction   - Complete
+X signals and undrivens   - Complete
+Mapped stopats            - Complete
+Assumption management     - Complete
+Overall SEC status        - Invalid
