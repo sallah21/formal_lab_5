@@ -1,0 +1,85 @@
+2024-10-24 03:46:06.938136 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.938177 (25353) main____ INFO    Jasper version info
+2024-10-24 03:46:06.938181 (25353) main____ INFO      tool      : Jasper 2022.06
+2024-10-24 03:46:06.938185 (25353) main____ INFO      version   : 2022.06p001 64 bits
+2024-10-24 03:46:06.938188 (25353) main____ INFO      build date: 2022.07.26 12:21:29 UTC
+2024-10-24 03:46:06.938190 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.938192 (25353) main____ INFO    Runtime info:
+2024-10-24 03:46:06.938194 (25353) main____ INFO      platform  : Linux 4.12.14-122.201-default x86_64
+2024-10-24 03:46:06.938199 (25353) main____ INFO      hostname  : sccf06195504
+2024-10-24 03:46:06.938201 (25353) main____ INFO      pid       : 25353
+2024-10-24 03:46:06.938203 (25353) main____ INFO      arguments : '-style' 'windows' '-license_remove_method' 'lmremove_c' '-sec' 'sec_run.tcl'
+2024-10-24 03:46:06.938207 (25353) main____ INFO      locale    : UTF-8
+2024-10-24 03:46:06.938211 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.938212 (25353) main____ INFO    System resource limits info:
+2024-10-24 03:46:06.938215 (25353) main____ INFO      virtual memory: unlimited
+2024-10-24 03:46:06.938217 (25353) main____ INFO      cpu time      : unlimited
+2024-10-24 03:46:06.938222 (25353) main____ INFO      processes     : 4096
+2024-10-24 03:46:06.938227 (25353) main____ INFO      stack size    : 8388608 B
+2024-10-24 03:46:06.938230 (25353) main____ INFO      core file size: 0 B
+2024-10-24 03:46:06.938232 (25353) main____ INFO      open files    : 16384
+2024-10-24 03:46:06.938235 (25353) main____ INFO      file size     : unlimited
+2024-10-24 03:46:06.938236 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.938238 (25353) main____ INFO    Memory statistics:
+2024-10-24 03:46:06.938240 (25353) main____ INFO      total physical memory  : 1056159136 kB
+2024-10-24 03:46:06.938244 (25353) main____ INFO      free physical memory   : 93866228 kB
+2024-10-24 03:46:06.938245 (25353) main____ INFO      committed address space: 887518744 kB
+2024-10-24 03:46:06.938247 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.939077 (25353) main____ INFO    Important environment variables:
+2024-10-24 03:46:06.939087 (25353) main____ INFO      CDS_LIC_FILE          : '5280@cadence24p.elic.intel.com:5280@cadence25p.elic.intel.com:5280@cadence17b.elic.intel.com:5280@cadence64p.elic.intel.com:5280@cadence63p.elic.intel.com:5280@scylic21.sc.intel.com:5280@cadence01p.elic.intel.com'
+2024-10-24 03:46:06.939090 (25353) main____ INFO      DISPLAY               : 'scce06392504.zsc11.intel.com:58'
+2024-10-24 03:46:06.939092 (25353) main____ INFO      EDITOR                : '/bin/vi'
+2024-10-24 03:46:06.939095 (25353) main____ INFO      JASPER_CMD_LINE_ARGS  : '-license_remove_method lmremove_c'
+2024-10-24 03:46:06.939099 (25353) main____ INFO      JASPER_INSTALL_DIR    : '/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001'
+2024-10-24 03:46:06.939102 (25353) main____ INFO      JASPER_MACRO_LINEFILES: '1'
+2024-10-24 03:46:06.939104 (25353) main____ INFO      JASPER_OS_CHECK       : '1'
+2024-10-24 03:46:06.939106 (25353) main____ INFO      JAVA_BINDIR           : '/usr/lib64/jvm/jre-openjdk/bin'
+2024-10-24 03:46:06.939110 (25353) main____ INFO      JAVA_HOME             : '/usr/lib64/jvm/jre-openjdk'
+2024-10-24 03:46:06.939112 (25353) main____ INFO      JAVA_ROOT             : '/usr/lib64/jvm/jre-openjdk'
+2024-10-24 03:46:06.939115 (25353) main____ INFO      JG_DIR                : '/p/hdk/rtl/cad/x86-64_linux30/jasper'
+2024-10-24 03:46:06.939117 (25353) main____ INFO      JG_HOME               : '/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001'
+2024-10-24 03:46:06.939121 (25353) main____ INFO      JG_MACRO_LINEFILES    : '1'
+2024-10-24 03:46:06.939123 (25353) main____ INFO      JG_PATH_REAL          : '/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001'
+2024-10-24 03:46:06.939128 (25353) main____ INFO      JG_VERSION            : '2022.06p001'
+2024-10-24 03:46:06.939131 (25353) main____ INFO      LANG                  : 'en_US.UTF-8'
+2024-10-24 03:46:06.939135 (25353) main____ INFO      LC_COLLATE            : 'C'
+2024-10-24 03:46:06.939137 (25353) main____ INFO      LM_PROJECT            : 'PCH_CIP'
+2024-10-24 03:46:06.939139 (25353) main____ INFO    ----------------------------------------
+2024-10-24 03:46:06.940946 (25353) lic_core INFO    Initializing license system ...
+2024-10-24 03:46:06.947715 (25353) lic_core INFO    ... license system initialized.
+2024-10-24 03:46:06.953590 (25353) lic__man INFO    Claim 'main' for <ui>.
+2024-10-24 03:46:06.953608 (25353) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2024-10-24 03:46:06.995060 (25353) lic_core INFO    ... (1) checkout succeeded
+2024-10-24 03:46:06.995111 (25353) lic__man INFO    Claim 'sec' for <ui>.
+2024-10-24 03:46:06.995124 (25353) lic_core INFO    (2) checking out 'jasper_sec' ...
+2024-10-24 03:46:07.034435 (25353) lic_core INFO    ... (2) checkout succeeded
+2024-10-24 03:46:07.037593 (25353) main____ INFO    Tool inactivity delay is 480000 ms.
+2024-10-24 03:46:07.581402 (25353) lic__man INFO    Claim 'sec' for <ui>.
+2024-10-24 03:46:08.005911 (25353) lic__man INFO    Unclaim 'sec' for <ui>.
+2024-10-24 03:46:08.005928 (25353) lic__man INFO    Claim 'sec' for <ui>.
+2024-10-24 03:46:08.036922 (25353) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
+2024-10-24 03:46:08.039300 (25353) session_ INFO    Analysis session with session id 'session_0' started (pid: 25383)
+2024-10-24 03:46:09.357370 (25353) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:46996)
+2024-10-24 03:46:10.075991 (25353) main____ INFO    Releasing console memory by request of analysis session 'session_0'.
+2024-10-24 03:46:10.077644 (25353) lic__man INFO    Unclaim everything for 'session_0'.
+2024-10-24 03:46:10.145308 (25353) lic__man INFO    Claim 'sec' for 'session_0'.
+2024-10-24 03:46:10.663145 (25353) lic__man INFO    Unclaim everything for 'session_0'.
+2024-10-24 03:46:11.104422 (25353) lic__man INFO    Claim 'sec' for 'session_0'.
+2024-10-24 03:46:11.210517 (25353) lic__man INFO    Claim 'sec' for 'session_0'.
+2024-10-24 03:46:11.210534 (25353) lic__man INFO    Claim 'sec' for 'session_0/prove-1'.
+2024-10-24 03:46:11.299059 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-4'.
+2024-10-24 03:46:11.529354 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-2'.
+2024-10-24 03:46:12.776845 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-6'.
+2024-10-24 03:46:12.890084 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-5'.
+2024-10-24 03:46:22.180596 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-3'.
+2024-10-24 03:46:22.183570 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-1'.
+2024-10-24 03:46:23.174350 (25353) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
+2024-10-24 03:55:31.973837 (25353) lic__man INFO    Entering idle state.
+2024-10-24 04:55:55.350283 (25353) lic__man INFO    Leaving idle state.
+2024-10-24 05:12:13.973239 (25353) lic__man INFO    Entering idle state.
+2024-10-24 08:58:45.907097 (25353) lic__man INFO    Leaving idle state.
+2024-10-24 08:58:45.928226 (25353) main____ INFO    About to exit: requested from GUI
+2024-10-24 08:58:46.056963 (25353) session_ INFO    Analysis session 'session_0' disconnected.
+2024-10-24 08:58:46.062422 (25353) lic_core INFO    (1) checkin jasper_interactive
+2024-10-24 08:58:46.062561 (25353) lic_core INFO    (2) checkin jasper_sec
+2024-10-24 08:58:46.064323 (25353) main____ INFO    Exiting with status 0.

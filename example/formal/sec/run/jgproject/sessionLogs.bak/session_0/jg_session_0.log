@@ -1,0 +1,729 @@
+# ----------------------------------------
+# Jasper Version Info
+# tool      : Jasper 2022.06
+# platform  : Linux 4.12.14-122.201-default
+# version   : 2022.06p001 64 bits
+# build date: 2022.07.26 12:21:29 UTC
+# ----------------------------------------
+# started   : 2024-10-24 03:46:09 PDT
+# hostname  : sccf06195504.zsc11
+# pid       : 25383
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:44539' '-style' 'windows' '-data' 'AAACXHicpZLPCgFRFMZ/EwtlK0/BzX/SLJTsSFnYiqGomSGDYuN1PJY3Gd9cs7EhnLrfPefr/M49i+sA7jWOY2xkLpICQ0ZMGEjHTHXP6INzo0mNDhV6eMxZsiJUtpLbYIdR5rORY6QhB1sb1VsCum/o5h90lTaLn+nWX5u3qH9FR/LOaW9NmxvrfPdmRdynN2049+eN60iyOiXKKZQMi6Qz9tJA0MlWgfTAWvXSfgRfzmuHJz+nOQmd5MU0SyYdNdWI98RB/gH+xWNZ' '-proj' '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run/jgproject/sessionLogs/session_0' '-init' '-hidden' '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run/jgproject/.tmp/.initCmds.tcl' 'sec_run.tcl'
+
+Any disclosure about the Cadence Design Systems software or its use
+model to any third party violates the written Non-Disclosure Agreement
+between Cadence Design Systems, Inc. and the customer.
+
+THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION AND TRADE SECRETS OF
+CADENCE DESIGN SYSTEMS, INC. USE, DISCLOSURE, OR REPRODUCTION IS
+PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF CADENCE
+DESIGN SYSTEMS, INC.
+
+Copyright (C) 2000-2022 Cadence Design Systems, Inc. All Rights
+Reserved.  Unpublished -- rights reserved under the copyright laws of
+the United States.
+
+This product includes software developed by others and redistributed
+according to license agreement. See doc/third_party_readme.txt for
+further details.
+
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c) (1) (ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c) (1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+
+                          Cadence Design Systems, Inc.
+                          2655 Seely Avenue
+                          San Jose, CA 95134
+                          Phone: 408.943.1234
+
+For technical assistance visit http://support.cadence.com.
+
+Jasper Apps Analysis Session - /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run/jgproject/sessionLogs/session_0
+
+INFO: successfully checked out licenses "jasper_interactive" and "jasper_sec".
+INFO: reading configuration file "/nfs/site/home/fpawelec/.config/cadence/jasper.conf".
+% #-----------------------------------------------------------------------------
+% #
+% # Copyright 2024 Intel Corporation All Rights Reserved.
+% #
+% # The source code contained or described herein and all documents related
+% # to the source code ("Material") are owned by Intel Corporation or its
+% # suppliers or licensors. Title to the Material remains with Intel
+% # Corporation or its suppliers and licensors. The Material contains trade
+% # secrets and proprietary and confidential information of Intel or its
+% # suppliers and licensors. The Material is protected by worldwide copyright
+% # and trade secret laws and treaty provisions. No part of the Material may
+% # be used, copied, reproduced, modified, published, uploaded, posted,
+% # transmitted, distributed, or disclosed in any way without Intel's prior
+% # express written permission.
+% #
+% # No license under any patent, copyright, trade secret or other intellectual
+% # property right is granted to or conferred upon you by disclosure or
+% # delivery of the Materials, either expressly, by implication, inducement,
+% # estoppel or otherwise. Any license under such intellectual property rights
+% # must be express and approved by Intel in writing.
+% #
+% #-----------------------------------------------------------------------------
+% 
+% ### Clear the environment
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% check_sec -clear all
+% 
+% ### Set flow variables
+% set MODULE_NAME dut_toplevel
+dut_toplevel
+% 
+% ### Import custom helper procedures used in this flow - no need to know the details
+% 
+% source "$::env(UNI_REPO_ROOT)/example/formal/common/procedures.tcl"
+% 
+% ### For metrics and for organisation, we take the current time
+% set systemTime [tcl_clock seconds]
+1729766770
+% flow_log info "Runtime timestamp that will be used for this run: [tcl_clock format $systemTime -format "%H:%M:%S %d.%m.%Y"]"
+INFO (IUSR001): Runtime timestamp that will be used for this run: 03:46:10 24.10.2024
+% set output_rundir_name [tcl_clock format $systemTime -format "${MODULE_NAME}_OUT_RUNDIR_%H:%M:%S__%d_%m_%Y"]
+dut_toplevel_OUT_RUNDIR_03:46:10__24_10_2024
+% if {![file isdirectory output]} {
+    flow_log debug "Creating output directory..."
+    file mkdir output
+} else {
+    flow_log debug "Output directory already created."
+}
+% flow_log debug "Creating run output dir..."
+% file mkdir "output/$output_rundir_name"
+% 
+% ### After creating the output folders, get final write path for all output files
+% set complete_run_out_path "output/$output_rundir_name"
+output/dut_toplevel_OUT_RUNDIR_03:46:10__24_10_2024
+% 
+% ### Dump env for potential debug purposes
+% # my_parray is defined in procedures.tcl
+% # Adapted based on https://stackoverflow.com/questions/34221492/redirecting-the-parray-output-to-a-file-in-tcl
+% 
+% set envDumpData [my_parray env]
+
+env(ASAN_OPTIONS)                          = detect_leaks=0:suppressions=/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/etc/res/asan/jg_asan.suppressions::handle_segv=0
+env(CDS_LIC_FILE)                          = 5280@cadence24p.elic.intel.com:5280@cadence25p.elic.intel.com:5280@cadence17b.elic.intel.com:5280@cadence64p.elic.intel.com:5280@cadence63p.elic.intel.com:5280@scylic21.sc.intel.com:5280@cadence01p.elic.intel.com
+env(CENTRAL_TOOL_CONFIG)                   = /p/hdk/pu_tu/prd/global_tools/ipfe/latest
+env(CFG_PROJECT)                           = pcth
+env(CODEINE_COMMAND_NAME)                  = Install Hipster Service
+env(CODEINE_COMMAND_STATUS_LINK)           = http://swiss-codeine.intel.com:12347/codeine/project/ION-Production/command/Install+Hipster+Service/1156/status
+env(CODEINE_HOST)                          = swiss-codeine.intel.com
+env(CODEINE_HOST_WORKAREA)                 = /usr/codeine
+env(CODEINE_NODE_ALIAS)                    = scyinf165@IONWebService-1
+env(CODEINE_NODE_NAME)                     = scyinf165.sc.intel.com:d5039ea3-98dd-493d-8ca4-cd643a5c9b00
+env(CODEINE_NODE_TAGS)                     = Type:Hipster;SN:IONWebService;ID:1;DC:SC;Module:Hipster;Space:cloud
+env(CODEINE_PORT)                          = 12347
+env(CODEINE_PROJECT_NAME)                  = ION-Production
+env(COLORTERM)                             = 1
+env(CPU)                                   = x86_64
+env(CSHEDIT)                               = emacs
+env(CSHRCREAD)                             = true
+env(CTH_CONFIG_ROOT)                       = /p/hdk/etc/Projects
+env(CTH_PERL5LIB)                          = /nfs/site/proj/hdk/pu_tu/prd/liteinfra/1.13.p03/commonFlow/lib/perl
+env(CTH_PYTHONPATH)                        = /nfs/site/proj/hdk/pu_tu/prd/liteinfra/1.13.p03/commonFlow/lib/python
+env(CTH_SESSION_ID)                        = fpawelec_11236_604371322
+env(CTH_SETUP_CMD)                         = /nfs/site/proj/hdk/pu_tu/prd/liteinfra/1.13.p03/commonFlow/bin/cth_psetup -proj ipfe/24.03.003 -cfg cig.cth -read_only
+env(CVS_RSH)                               = ssh
+env(DBUS_SESSION_BUS_ADDRESS)              = 0
+env(DISPLAY)                               = scce06392504.zsc11.intel.com:58
+env(DOMAIN)                                = ipfe
+env(EC_ENV_PROJ)                           = default
+env(EC_ENV_ROOT)                           = /usr/intel/pkgs/eclogin/1.0
+env(EC_OU)                                 = unknown
+env(EC_SITE)                               = zsc11
+env(EC_SITECODE)                           = SC
+env(EC_UNAME)                              = Linux_4.12.14-122.201-default_x86_64
+env(EC_ZONE)                               = zsc11
+env(EDITOR)                                = /bin/vi
+env(FE_ACTIVITY_MAPPING)                   = baseline_tools/activity_dir.map
+env(FE_BASELINE_TOOLS)                     = baseline_tools
+env(FE_REPO_CMD)                           = /usr/intel/bin/git rev-parse --show-toplevel
+env(FROM_HEADER)                           = 
+env(FVWM_USERDIR)                          = /nfs/site/home/fpawelec
+env(GIT_REPOS)                             = /nfs/site/disks/gitgk_0000/git_repos
+env(GROFF_NO_SGR)                          = yes
+env(GROUP)                                 = intelall
+env(G_BROKEN_FILENAMES)                    = 1
+env(G_FILENAME_ENCODING)                   = @locale,UTF-8,ISO-8859-15,CP1252
+env(HOME)                                  = /nfs/site/home/fpawelec
+env(HOST)                                  = sccf06195504
+env(HOSTNAME)                              = sccf06195504.zsc11.intel.com
+env(HOSTTYPE)                              = x86_64-linux
+env(HTTPS_PROXY)                           = http://proxy-chain.intel.com:912
+env(HTTP_PROXY)                            = http://proxy-chain.intel.com:911
+env(IJL_ROOT)                              = /p/hdk/rtl/cad/x86-64_linux30/jasper/intel_jasper_library/4.3p2/src
+env(IJL_ROOT_LATEST)                       = 4.3p2
+env(IJL_VERSION_REAL)                      = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/intel_jasper_library/4.3p2
+env(INFOPATH)                              = /usr/intel/pkgs/info/LATEST
+env(INPUTRC)                               = /etc/inputrc
+env(IP_MODELS)                             = /nfs/site/disks/ipm_0000
+env(IP_ROOT)                               = /nfs/site/disks/avs_00053/fpawelec/ace
+env(IWRAPPER_DEPTH)                        = 1,1724838361
+env(JASPER_BIN)                            = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/bin
+env(JASPER_CMD_LINE_ARGS)                  = -license_remove_method lmremove_c
+env(JASPER_INSTALL_DIR)                    = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001
+env(JASPER_MACRO_LINEFILES)                = 1
+env(JASPER_OS_CHECK)                       = 1
+env(JAVA_BINDIR)                           = /usr/lib64/jvm/jre-openjdk/bin
+env(JAVA_HOME)                             = /usr/lib64/jvm/jre-openjdk
+env(JAVA_ROOT)                             = /usr/lib64/jvm/jre-openjdk
+env(JG_DIR)                                = /p/hdk/rtl/cad/x86-64_linux30/jasper
+env(JG_HOME)                               = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001
+env(JG_MACRO_LINEFILES)                    = 1
+env(JG_PATH_REAL)                          = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001
+env(JG_VERSION)                            = 2022.06p001
+env(JRE_HOME)                              = /usr/lib64/jvm/jre-openjdk
+env(LANG)                                  = en_US.UTF-8
+env(LC_COLLATE)                            = C
+env(LD_LIBRARY_PATH)                       = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/lib
+env(LESS)                                  = -M -I -R
+env(LESSCLOSE)                             = lessclose.sh %s %s
+env(LESSKEY)                               = /etc/lesskey.bin
+env(LESSOPEN)                              = lessopen.sh %s
+env(LESS_ADVANCED_PREPROCESSOR)            = no
+env(LICENSE_DATA_OVRD)                     = /p/hdk/rtl/proj_tools/license_data/ipg/latest
+env(LM_PROJECT)                            = PCH_CIP
+env(LOCAL_JAVA)                            = /usr
+env(LOGNAME)                               = fpawelec
+env(LSAN_OPTIONS)                          = detect_leaks=0:
+env(LS_COLORS)                             = no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.xz=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:
+env(LS_OPTIONS)                            = -N --color=tty -T 0
+env(MACHTYPE)                              = x86_64
+env(MAIL)                                  = /var/spool/mail/fpawelec
+env(MANPATH)                               = /usr/local/man:/usr/share/man:/opt/quest/man:/usr/intel/man:/usr/share/man:/usr/local/man:/opt/quest/man
+env(MINICOM)                               = -c on
+env(MODEL_ROOT)                            = /nfs/site/disks/avs_00053/fpawelec/ace
+env(MORE)                                  = -sl
+env(MYSQL_HISTFILE)                        = /dev/null
+env(NB_JOB_IDS_TRACE)                      = zsc11_ion.242417882 
+env(NLSPATH)                               = /usr/dt/lib/nls/msg/%L/%N.cat
+env(NNTPSERVER)                            = news.intel.com
+env(NODE_TLS_REJECT_UNAUTHORIZED)          = 0
+env(NODE_VERSION)                          = 12
+env(NO_PROXY)                              = .intel.com,0.0.0.0,localhost,127.0.0.1,scyinf165,10.148.90.12
+env(OS)                                    = linux
+env(OSTYPE)                                = linux
+env(OS_NAME)                               = Linux64
+env(PAGER)                                 = less
+env(PATH)                                  = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/bin:/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/bin:/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/bin:/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/bin:/nfs/site/disks/crt_tools_060/atrenta/spyglass/T-2022.06-SP2-4/SPYGLASS_HOME/bin:/p/hdk/pu_tu/prd/proj_bin/ipg/24.03.001:/p/hdk/pu_tu/prd/proj_dbin/cig/24.03.001:/p/hdk/pu_tu/prd/proj_dbin/ipg/24.02.002:/p/ipx/cad/ipxclient/prod/ph3:/nfs/site/home/fpawelec/bin:/usr/intel/bin:/bin:/usr/bin:/usr/bin/X11:.:/usr/sbin:/usr/local/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:/nfs/site/proj/hdk/pu_tu/prd/liteinfra/1.13.p03/commonFlow/bin/
+env(PERL5LIB)                              = /nfs/site/proj/hdk/pu_tu/prd/liteinfra/1.13.p03/commonFlow/lib/perl
+env(PROCESS_TECH)                          = default
+env(PRODUCT_NAME)                          = ipfe
+env(PROD_MONITOR_NAME)                     = ipg-ipfe
+env(PROJ_MONITOR_NAME)                     = ipfe-cig
+env(PS_HWPC)                               = OFF
+env(PWD)                                   = /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run
+env(PYTHONSTARTUP)                         = /etc/pythonstart
+env(QT_PLUGIN_PATH)                        = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/lib/plugins
+env(QT_QPA_PLATFORM_PLUGIN_PATH)           = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/Linux64/lib/plugins/platforms
+env(QT_SYSTEM_DIR)                         = /usr/share/desktop-data
+env(QT_XCB_NATIVE_PAINTING)                = 1
+env(QT_XCB_NO_XI2)                         = 1
+env(RLM_PROJECT)                           = PCH_CIP
+env(RTLD_DEEPBIND)                         = 0
+env(RTLMODELS)                             = /nfs/site/disks/ipm_0000
+env(RTL_PROJ_DBIN)                         = /p/hdk/pu_tu/prd/proj_dbin/cig/24.03.001
+env(SGCDC_HOME)                            = /nfs/site/disks/crt_tools_060/atrenta/spyglass/T-2022.06-SP2-4/SPYGLASS_HOME
+env(SGCDC_VERSION)                         = T-2022.06-SP2-4
+env(SG_DIR)                                = /nfs/site/disks/crt_tools_060/atrenta/spyglass
+env(SHELL)                                 = /bin/tcsh
+env(SHLVL)                                 = 2
+env(SIA_HOME)                              = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001
+env(SNPSLMD_LICENSE_FILE)                  = 26586@synopsys198p.elic.intel.com:26586@synopsys69p.elic.intel.com:26586@synopsys68p.elic.intel.com:26586@synopsys47p.elic.intel.com:26586@synopsys04p.elic.intel.com
+env(SPLUNK_PROJECT)                        = IPG_IP
+env(TCL_LIBRARY)                           = /nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/etc/res/tcl_package/tcl8.6
+env(TCMALLOC_LARGE_ALLOC_REPORT_THRESHOLD) = 4611686018427387904
+env(TERM)                                  = xterm
+env(TZ)                                    = PST8PDT
+env(UBSAN_OPTIONS)                         = print_stacktrace=1:suppressions=/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/etc/res/ubsan/jg_ubsan.suppressions:
+env(UNI_REPO_ROOT)                         = /nfs/site/disks/avs_00053/fpawelec/uni-example
+env(USER)                                  = fpawelec
+env(USER_ITOOLS)                           = /nfs/site/home/fpawelec/.itools
+env(VENDOR)                                = unknown
+env(VIPCAT_INSTALL_DIR)                    = /nfs/site/disks/crt_linktree_1/rtl_cad/cadence/vipcat/vipcat_11.30.083-29_May_2022_08_15_02/
+env(WASH_LIST)                             = -g ciguser -n audiofe ciguser hdk7nm intelall mp_tech_n7 n7 n7fe psgeng siphdk soc soc73 soc73proc socenv socrtl wcl
+env(WINDOWID)                              = 56623112
+env(WORKAREA)                              = /nfs/site/disks/avs_00053/fpawelec/ace
+env(XCURSOR_THEME)                         = Industrial
+env(XDG_CONFIG_DIRS)                       = /etc/xdg
+env(XDG_DATA_DIRS)                         = /usr/share
+env(XFILESEARCHPATH)                       = /usr/dt/app-defaults/%L/Dt
+env(XKEYSYMDB)                             = /usr/X11R6/lib/X11/XKeysymDB
+env(XNLSPATH)                              = /usr/share/X11/nls
+env(XTERM_LOCALE)                          = en_US.UTF-8
+env(XTERM_SHELL)                           = /usr/intel/bin/tcsh
+env(XTERM_VERSION)                         = X.Org 7.7.0(308)
+env(__NB_CLASS)                            = (SLES12) && (tool)
+env(__NB_CLASSRESERVATION)                 = int_users=1,cores=1,int_memory=44.7,memory=44.7,int_cores=1
+env(__NB_HOME)                             = /nfs/site/disks/ec_netbatch/install/8.6.0_0979_21
+env(__NB_INTERACTIVE_SESSIONID)            = zsc11_ion.242417882
+env(__NB_JOBID)                            = zsc11_ion.242417882
+env(__NB_LOCAL_BIN)                        = /var/netstar/bin
+env(__NB_LOG_FILE)                         = /dev/null
+env(__NB_POOL)                             = zsc11_ion
+env(__NB_QSLOT)                            = PCH/AVS/RTL
+env(__NB_QUEUE)                            = zsc11_interactive
+env(__NB_RUNNING_ON_DYNAMIC_WSM)           = false
+env(__NB_SUBMISSION_POOL)                  = zsc11_ion
+env(__NB_SUBMITTING_USER)                  = fpawelec
+env(__NB_SUBMIT_PWD)                       = /nfs/site/home/fpawelec
+env(__NB_TIMES_RESTARTED)                  = 0
+env(__NB_UNIQUE_EXEC_ID)                   = 19658
+env(__NB_USER_LOG_FILE)                    = /dev/null
+env(__NB_WSM_JETTY_CONTROLLER_PORT)        = 31556
+env(ace)                                   = /nfs/site/disks/gitgk_0000/git_repos/cavs/cavs-ace_4px/
+env(disk)                                  = /nfs/site/disks/avs_00053/fpawelec
+env(home)                                  = /nfs/site/home/fpawelec
+env(http_proxy)                            = http://proxy-dmz.intel.com:911
+env(https_proxy)                           = http://proxy-dmz.intel.com:912
+env(ip)                                    = /nfs/site/disks/avs_00053/fpawelec/ace
+env(no_proxy)                              = ‘intel.com,.intel.com,localhost,127.0.0.0/8,10.0.0.0/8,192.168.0.0/16,134.134.0.0/16’
+env(version)                               = 0.0.6_build_1016_00-SNAPSHOT
+% set envDumpFileId [open "$complete_run_out_path/.envdump" "w"]
+file56
+% puts $envDumpFileId $envDumpData
+% close $envDumpFileId
+% 
+% 
+% ### Joined setup for sequence equivalence check
+% check_sec -setup \
+          -spec_top dut_toplevel \
+          -spec_analyze_opts { -sv12 -f spec_files.f } \
+          -spec_elaborate_opts { -bbox_mul 128 -bbox_div 128 -bbox_a 65536 } \
+          -imp_top imp_dut_toplevel \
+          -imp_analyze_opts { -sv12 -f imp_files.f } \
+          -imp_elaborate_opts { -bbox_mul 128 -bbox_div 128 -bbox_a 65536 }
+INFO (ISEC089): Analyzing the spec design.
+INFO (INL011): Processing "-f" file "/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run/spec_files.f".
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh'
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(6): parameter 'DATA_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(7): parameter 'FIFO_HEIGHT' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(9): parameter 'ARB_MODES_NUM' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(10): parameter 'ARB_MODE_ID_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(11): parameter 'IN_INTERFACES_NUM' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(12): parameter 'IN_INTERFACE_ID_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_toplevel.sv'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_processing_control/rtl/sv/dut_processing_control.sv'
+[-- (VERI-1489)]       Resolving module 'dut_processing_control'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_output_control/rtl/sv/dut_output_control.sv'
+[-- (VERI-1489)]       Resolving module 'dut_output_control'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_math_wrapper.sv'
+[-- (VERI-1489)]       Resolving module 'dut_math_wrapper'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_18x18_comb.sv'
+[-- (VERI-1489)]       Resolving module 'dut_multiplier_18x18_comb'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_9x9_comb.sv'
+[-- (VERI-1489)]       Resolving module 'dut_multiplier_9x9_comb'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_input_channel_control/rtl/sv/dut_input_channel_control.sv'
+[-- (VERI-1489)]       Resolving module 'dut_input_channel_control'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_fifo/rtl/sv/dut_fifo.sv'
+[-- (VERI-1489)]       Resolving module 'dut_fifo'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_arbiter/rtl/sv/dut_arbiter.sv'
+[-- (VERI-1489)]       Resolving module 'dut_arbiter'
+INFO (ISEC090): Elaborating the spec design.
+INFO (ISW003): Top module name is "dut_toplevel".
+[INFO (HIER-8002)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_toplevel.sv(415): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_processing_control/rtl/sv/dut_processing_control.sv(24): compiling module 'dut_processing_control:(ARB_MODES_NUM=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_input_channel_control/rtl/sv/dut_input_channel_control.sv(24): compiling module 'dut_input_channel_control:(DATA_WIDTH=36)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_arbiter/rtl/sv/dut_arbiter.sv(24): compiling module 'dut_arbiter:(DATA_WIDTH=36,IN_INTERFACE_ID_WIDTH=2,ARB_MODES_NUM=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_9x9_comb.sv(1): compiling module 'dut_multiplier_9x9_comb'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_18x18_comb.sv(1): compiling module 'dut_multiplier_18x18_comb'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_math_wrapper.sv(1): compiling module 'dut_math_wrapper:(DATA_WIDTH=36,IN_INTERFACE_ID_WIDTH=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_fifo/rtl/sv/dut_fifo.sv(24): compiling module 'dut_fifo:(FIFO_HEIGHT=4,FIFO_WIDTH=39)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_output_control/rtl/sv/dut_output_control.sv(24): compiling module 'dut_output_control:(DATA_WIDTH=36,IN_INTERFACE_ID_WIDTH=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_toplevel.sv(26): compiling module 'dut_toplevel'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          10 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (9 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      10 (10 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+INFO (ISEC089): Analyzing the imp design.
+INFO (INL011): Processing "-f" file "/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/run/imp_files.f".
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/crt_linktree_1/rtl_cad/jasper/jaspergold/2022.06p001/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh'
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(6): parameter 'DATA_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(7): parameter 'FIFO_HEIGHT' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(9): parameter 'ARB_MODES_NUM' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(10): parameter 'ARB_MODE_ID_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(11): parameter 'IN_INTERFACES_NUM' declared inside package 'dut_params_pkg' shall be treated as localparam
+[WARN (VERI-2418)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_toplevel/rtl/sv/dut_params_pkg.svh(12): parameter 'IN_INTERFACE_ID_WIDTH' declared inside package 'dut_params_pkg' shall be treated as localparam
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_toplevel.sv'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_math_wrapper.sv'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_processing_control.sv'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_output_control/rtl/sv/dut_output_control.sv'
+[-- (VERI-1489)]       Resolving module 'dut_output_control'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_input_channel_control/rtl/sv/dut_input_channel_control.sv'
+[-- (VERI-1489)]       Resolving module 'dut_input_channel_control'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_18x18_comb.sv'
+[-- (VERI-1489)]       Resolving module 'dut_multiplier_18x18_comb'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_9x9_comb.sv'
+[-- (VERI-1489)]       Resolving module 'dut_multiplier_9x9_comb'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_fifo/rtl/sv/dut_fifo.sv'
+[-- (VERI-1489)]       Resolving module 'dut_fifo'
+[-- (VERI-1482)] Analyzing Verilog file '/nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_arbiter/rtl/sv/dut_arbiter.sv'
+[-- (VERI-1489)]       Resolving module 'dut_arbiter'
+INFO (ISEC090): Elaborating the imp design.
+INFO (ISW003): Top module name is "imp_dut_toplevel".
+[INFO (HIER-8002)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_toplevel.sv(415): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_processing_control.sv(24): compiling module 'imp_dut_processing_control:(ARB_MODES_NUM=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_input_channel_control/rtl/sv/dut_input_channel_control.sv(24): compiling module 'dut_input_channel_control:(DATA_WIDTH=40)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_arbiter/rtl/sv/dut_arbiter.sv(24): compiling module 'dut_arbiter:(DATA_WIDTH=40,IN_INTERFACE_ID_WIDTH=2,ARB_MODES_NUM=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_9x9_comb.sv(1): compiling module 'dut_multiplier_9x9_comb'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_math_wrapper/rtl/sv/dut_multiplier_18x18_comb.sv(1): compiling module 'dut_multiplier_18x18_comb'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_math_wrapper.sv(1): compiling module 'imp_dut_math_wrapper:(DATA_WIDTH=40,IN_INTERFACE_ID_WIDTH=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_fifo/rtl/sv/dut_fifo.sv(24): compiling module 'dut_fifo:(FIFO_HEIGHT=4,FIFO_WIDTH=43)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/design/dut_output_control/rtl/sv/dut_output_control.sv(24): compiling module 'dut_output_control:(DATA_WIDTH=40,IN_INTERFACE_ID_WIDTH=2)'
+[INFO (VERI-1018)] /nfs/site/disks/avs_00053/fpawelec/uni-example/example/formal/sec/src/imp_dut_toplevel.sv(26): compiling module 'imp_dut_toplevel'
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          10 (1 packages)
+  Single run mode                         On
+  Pipeline                                On (9 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      10 (10 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (ISEC091): Connecting spec and imp designs.
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IMTR082): Calculating design region.
+INFO (ISEC083): Building the SEC signal DB.
+INFO (IMTR087): Collecting free X signals.
+INFO (IMTR087): Collecting free X signals - Done.
+INFO (IMTR084): Collecting undriven signals.
+INFO (IMTR084): Collecting undriven signals - Done.
+INFO (IMTR088): Collecting stopat signals.
+INFO (IMTR088): Collecting stopat signals - Done.
+INFO (IMTR086): Collecting register signals.
+INFO (IMTR086): Collecting register signals - Done.
+INFO (ISEC083): Building the SEC signal DB - Done.
+INFO (IMTR093): Modeling the MPRAM blackbox instances.
+INFO (IMTR074): Applying auto mapping for signal type = "dut_output".
+INFO (IMTR074): Applying auto mapping for signal type = "bbox_input".
+INFO (IMTR074): Applying auto mapping for signal type = "primary_input".
+INFO (IMTR074): Applying auto mapping for signal type = "undriven".
+INFO (IMTR074): Applying auto mapping for signal type = "bbox_output".
+INFO (IMTR074): Applying auto mapping for signal type = "setup_stopat".
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % ### Map and waive signals that cannot be mapped automatically
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % ### Provide clock and reset info
+[<embedded>] % reset -expression !(nreset)
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "nreset".
+[<embedded>] % clock clk
+[<embedded>] % 
+[<embedded>] % ### Sanity check of the interface mapping - very important that no errors or warnings are reported
+[<embedded>] % check_sec -interface
+INFO (IMTR114): Start - Clear AutoProve Data on task="<embedded>".
+INFO (IMTR115): Done - Clear AutoProve Data on task="<embedded>".
+INFO (IMTR031): Exposing connection mappings.
+INFO (IMTR028): Exposing connection mapping properties...
+INFO (IMTR029): Exposing connection mapping properties, DONE.
+INFO (ISEC021): Computing SEC environment configuration.
+INFO (IMTR032): Computing clock data.
+INFO (IMTR033): Computing reset data.
+INFO (IRS039): Reset analysis complete.
+INFO (IMTR094): Updating init mapping entries.
+INFO (IMTR095): Apply mapping sanity check.
+INFO (ISEC097): Applying sanity check for cutpoints against user-specified assumptions and SEC connections.
+INFO (IMTR126): Started calculating user verification targets' COI on task "<embedded>".
+INFO (IMTR127): Finished calculating user verification targets' COI on task "<embedded>".
+INFO (IMTR131): Started updating mapping entries according to the targets' COI.
+INFO (IMTR132): Finished updating mapping entries according to the targets' COI.
+INFO (IMTR034): Exposing the remaining mapping entries.
+INFO (IMTR028): Exposing verification target mapping properties...
+INFO (IMTR029): Exposing verification target mapping properties, DONE.
+INFO (ISEC042): Running interface check.
+WARNING (WSEC072): Found 3 unmapped imp primary_input signal(s).
+WARNING (WSEC072): Found 1 unmapped imp primary_output signal(s).
+   Interface Check Summary
+=============================
+primary_input       - FAILED - found 3 unmapped signal(s) in imp.
+primary_output      - FAILED - found 1 unmapped signal(s) in imp.
+user_bbox_input     - PASSED
+user_bbox_output    - PASSED
+auto_bbox_input     - PASSED
+auto_bbox_output    - PASSED
+user_task_stopat    - PASSED
+user_env_stopat     - PASSED
+setup_stopat        - PASSED
+internal_undriven   - PASSED
+x_assignment        - PASSED
+x_default_assignment- PASSED
+x_index_out_of_range- PASSED
+x_divide_by_zero    - PASSED
+x_misc_undriven     - PASSED
+x_low_power         - PASSED
+x_bus_contention    - PASSED
+x_bus_floating      - PASSED
+reset_x             - PASSED
+imp_assumptions     - PASSED
+=============================
+Overall interface check result - FAILED
+failed
+[<embedded>] % 
+[<embedded>] % ### Run prove
+[<embedded>] % check_sec -prove
+INFO (ISEC116): Preparing the SEC environment for "sec_proof_sscp" strategy...
+INFO (ISEC116): Preparing the SEC environment for "sec_proof_sscp" strategy, DONE.
+INFO (ISEC143): SEC proof cache is off. To enable it, use the "set_proofmaster on" command.
+INFO (IMTR110): (0.proof) Starting SEC SSCP proof strategy on task "<embedded>".
+INFO (IPF031): Settings used for proof thread default:
+    orchestration                 = off (auto)
+    time_limit                    = 86400s
+    proofgrid_per_engine_max_jobs = 1
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+EAMcustom1: Custom engine code is hT3NarhPNfSYwITAhNken21lYJCU+TJo+nlwqncArwayzNqdS4AEAQA
+Ncustom2: Custom engine code is hT3NarhPPfiYwITAhNken21lYJCU+TJo+nlwqncArwayxbOdDA/cAQA
+AMcustom3: Custom engine code is hT3NarhP/feYwITAhNken21lYJCU+TJo+nlwqncArwayx/idGV4VAQA
+Hpcustom4: Custom engine code is hT3NabhPPfqYwITAhNken21lYHg4XKtu19zopngjZwESuL1JYZ8BAA
+Mpcustom5: Custom engine code is hT3NkrhP9fmYwITAhNken21lYHg4XKtu19zopngjt0Q6Y8l5qWf/lNltXszboO/7jpiHGEXlK08x/TaYGLCL/yM1AQA
+INFO (IPF200): Cover generation seed: 1729766771.
+INFO (IRS026): Computing reset analysis for expressions.
+INFO (IRS027): Finished computing reset analysis for expressions.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (Ht): A counterexample (cex) with 3 cycles was found for the property "<embedded>::proc_ack" in 0.33 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (J): A counterexample (cex) with 18 cycles was found for the property "<embedded>::in2_ready" in 0.38 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (J): A counterexample (cex) with 18 cycles was found for the property "<embedded>::out_data[35:0]" in 0.39 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (J): A counterexample (cex) with 18 cycles was found for the property "<embedded>::out_data_last" in 0.40 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (J): A counterexample (cex) with 39 cycles was found for the property "<embedded>::out_data_source_id[1:0]" in 0.40 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (Ht): A counterexample (cex) with 8 cycles was found for the property "<embedded>::in0_ready" in 0.41 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (Ht): A counterexample (cex) with 8 cycles was found for the property "<embedded>::in1_ready" in 0.42 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (J): A counterexample (cex) with 86 cycles was found for the property "<embedded>::out_valid" in 0.43 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (BP) (Ht): A counterexample (cex) with 10 cycles was found for the property "<embedded>::out_valid" in 0.44 s.
+INFO (IRS026): Computing reset analysis for expressions.
+INFO (IRS027): Finished computing reset analysis for expressions.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (FE): A counterexample (cex) with 12 cycles was found for the property "<embedded>::out_data[35:0]" in 1.13 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (FE): A counterexample (cex) with 12 cycles was found for the property "<embedded>::out_data_source_id[1:0]" in 1.16 s.
+INFO (IPF061): 6: Some targets were skipped during proof.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (FE): A counterexample (cex) with 9 cycles was found for the property "<embedded>::in2_ready" in 1.66 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (FE): A counterexample (cex) with 10 cycles was found for the property "<embedded>::out_data_last" in 1.67 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (CP): A counterexample (cex) with 8 cycles was found for the property "<embedded>::in2_ready" in 2.60 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (CP): A counterexample (cex) with 9 cycles was found for the property "<embedded>::out_data[35:0]" in 2.68 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (CP): A counterexample (cex) with 9 cycles was found for the property "<embedded>::out_data_source_id[1:0]" in 2.69 s.
+INFO (ISEC107): (0.proof) SEC SSCP proof strategy (CP): A counterexample (cex) with 9 cycles was found for the property "<embedded>::out_data_last" in 5.50 s.
+INFO (ISEC134): SEC Failure Extension: FE heap have reached size 33 (Primary outputs: 16 , Other user targets: 0 , AutoProve properties: 17).
+INFO (ISEC134): SEC Failure Extension: FE initiated 1 time(s) (Primary outputs: 1 , Other user targets: 0 , AutoProve properties: 0).
+INFO (ISEC134): SEC Failure Extension: FE extended on 1 proof(s) (Primary outputs: 1 , Other user targets: 0 , AutoProve properties: 0).
+INFO (ISEC134): SEC Failure Extension: 0 proof(s) haven't found new counterexamples (Primary outputs: 0 , Other user targets: 0 , AutoProve properties: 0).
+INFO (ISEC134): SEC Failure Extension: 0 of the traces in heap weren't productive.
+INFO (ISEC134): SEC Failure Extension: FE have found 31 traces (Early stage: 31 , Under time limit: 0 , On extended time: 0).
+INFO (ISEC134): SEC Failure Extension: Iteration status -  it.0: 32 trace(s) it.1: 1 trace(s).
+INFO (ISEC134): (0.proof) SEC Proof Result: cex.
+
+==============================================================
+SUMMARY - SEC SSCP PROOF STRATEGY
+==============================================================
+           Properties Considered : 8
+                 assertions      : 8
+                  - proven       : 0
+                  - marked_proven: 0
+                  - cex          : 8
+                  - ar_cex       : 0
+                  - undetermined : 0
+                  - unprocessed  : 0
+                  - error        : 0
+                 covers          : 0
+                  - unreachable  : 0
+                  - covered      : 0
+                  - ar_covered   : 0
+                  - undetermined : 0
+                  - unprocessed  : 0
+                  - error        : 0
+cex
+[<embedded>] % 
+[<embedded>] % ### Get validity status of the proof
+[<embedded>] % check_sec -signoff -get_valid_status
+INFO (ISEC124): Calculating valid results on boundary targets ...
+Boundary outputs mapping
+Status:
+    Incomplete
+Description:
+    Some of the design's outputs are not mapped.
+    All outputs must be proven equal to complete the SEC proof.
+    To get the list of unmapped outputs, use "check_sec -interface -unmapped -signal_type primary_output -imp".
+
+Boundary outputs proof
+Status:
+    Invalid
+Description:
+    Counter examples were found for some of the mapped outputs. The SEC proof
+    is complete only when all of the outputs are proven equal
+    and all related precondition covers are covered.
+
+User cutpoints proof
+Status:
+    Complete
+
+Imported assertions proof
+Status:
+    Complete
+
+Imported covers proof
+Status:
+    Complete
+
+Reset value abstraction
+Status:
+    Complete
+
+X signals and undrivens
+Status:
+    Complete
+
+Mapped stopats
+Status:
+    Complete
+
+Assumption management
+Status:
+    Complete
+
+Assumptions conflict
+Status:
+    Complete
+
+Assumptions on driven signals
+Status:
+    Complete
+
+Assumptions' related covers
+Status:
+    Complete
+
+Imp assumptions
+Status:
+    Complete
+
+Signoff Summary
+===============
+Boundary outputs mapping  - Incomplete
+Boundary outputs proof    - Invalid
+User cutpoints proof      - Complete
+Imported assertions proof - Complete
+Imported covers proof     - Complete
+Reset value abstraction   - Complete
+X signals and undrivens   - Complete
+Mapped stopats            - Complete
+Assumption management     - Complete
+Overall SEC status        - Invalid
+
+Primary outputs valid statuses
+==============================
+property_name: out_data_source_id[1:0], engine: J , Time: 0.400958s, Mapping_ID: 0, property_status: cex, min_length: 9 , max_length: 9
+property_name: out_valid              , engine: J , Time: 0.426202s, Mapping_ID: 1, property_status: cex, min_length: 10, max_length: 10
+property_name: in0_ready              , engine: Ht, Time: 0.410268s, Mapping_ID: 2, property_status: cex, min_length: 8 , max_length: 8
+property_name: proc_ack               , engine: Ht, Time: 0.328054s, Mapping_ID: 3, property_status: cex, min_length: 3 , max_length: 3
+property_name: in2_ready              , engine: J , Time: 0.382794s, Mapping_ID: 4, property_status: cex, min_length: 8 , max_length: 8
+property_name: out_data[35:0]         , engine: J , Time: 0.391979s, Mapping_ID: 5, property_status: cex, min_length: 8 , max_length: 9
+property_name: in1_ready              , engine: Ht, Time: 0.418292s, Mapping_ID: 6, property_status: cex, min_length: 8 , max_length: 8
+property_name: out_data_last          , engine: J , Time: 0.400799s, Mapping_ID: 7, property_status: cex, min_length: 9 , max_length: 9
+
+Verification targets valid statuses summary
+===========================================
+#proven: 0, #unprocessed: 0, #undetermined: 0, #cex: 8, #unreachable-precondition: 0, #undetermined-precondition: 0, #unprocessed-precondition: 0
+All user targets have counterexamples.
+
+Covers valid statuses summary
+=============================
+#covered: 0, #unprocessed: 0, #undetermined: 0, #unreachable: 0
+{0 out_data_source_id[1:0] cex 9 9} {1 out_valid cex 10 10} {2 in0_ready cex 8 8} {3 proc_ack cex 3 3} {4 in2_ready cex 8 8} {5 out_data[35:0] cex 8 9} {6 in1_ready cex 8 8} {7 out_data_last cex 9 9}
+[<embedded>] % 
+[<embedded>] % ### Generate report
+[<embedded>] % check_sec -signoff -detailed -force -file "$complete_run_out_path/$MODULE_NAME.sequence_eq_chk.rpt"
+INFO (ISEC124): Calculating valid results on boundary targets ...
+Boundary outputs mapping
+Status:
+    Incomplete
+Description:
+    Some of the design's outputs are not mapped.
+    All outputs must be proven equal to complete the SEC proof.
+    To get the list of unmapped outputs, use "check_sec -interface -unmapped -signal_type primary_output -imp".
+
+Boundary outputs proof
+Status:
+    Invalid
+Description:
+    Counter examples were found for some of the mapped outputs. The SEC proof
+    is complete only when all of the outputs are proven equal
+    and all related precondition covers are covered.
+
+User cutpoints proof
+Status:
+    Complete
+
+Imported assertions proof
+Status:
+    Complete
+
+Imported covers proof
+Status:
+    Complete
+
+Reset value abstraction
+Status:
+    Complete
+
+X signals and undrivens
+Status:
+    Complete
+
+Mapped stopats
+Status:
+    Complete
+
+Assumption management
+Status:
+    Complete
+
+Assumptions conflict
+Status:
+    Complete
+
+Assumptions on driven signals
+Status:
+    Complete
+
+Assumptions' related covers
+Status:
+    Complete
+
+Imp assumptions
+Status:
+    Complete
+
+Signoff Summary
+===============
+Boundary outputs mapping  - Incomplete
+Boundary outputs proof    - Invalid
+User cutpoints proof      - Complete
+Imported assertions proof - Complete
+Imported covers proof     - Complete
+Reset value abstraction   - Complete
+X signals and undrivens   - Complete
+Mapped stopats            - Complete
+Assumption management     - Complete
+Overall SEC status        - Invalid
+Invalid
+[<embedded>] % visualize -violation -property {<embedded>::out_data_source_id[1:0]} -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::out_data_source_id[1:0]".
+cex
+INFO (IPL005): Received request to exit from the console.
+INFO (IPL014): Waiting for the Tcl-thread to exit.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+INFO (IPL018): The peak resident set memory use for this session was 0.710 GB.
+INFO (IPL015): The Tcl-thread exited with status 0.
+INFO (IPL016): Exiting the analysis session with status 0.
